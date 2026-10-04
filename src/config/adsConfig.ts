@@ -7,7 +7,7 @@
 export const ADS_CONFIG = {
   // Replace with your Google AdSense Publisher ID (e.g., 'ca-pub-1234567890123456')
   // or set VITE_GOOGLE_ADSENSE_CLIENT in your .env file
-  client: import.meta.env.VITE_GOOGLE_ADSENSE_CLIENT || '',
+  client: import.meta.env.VITE_GOOGLE_ADSENSE_CLIENT || 'ca-pub-4134924069967862',
 
   // Ad Slot ID for Left Side Ad Unit
   slotLeft: import.meta.env.VITE_GOOGLE_ADSENSE_SLOT_LEFT || '',
