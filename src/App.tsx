@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { GameBoard } from './components/GameBoard';
-import { VisualControls } from './components/VisualControls';
 import { DailyResultModal } from './components/DailyResultModal';
 import { TutorialModal } from './components/TutorialModal';
 import { StatisticsModal } from './components/StatisticsModal';
@@ -284,12 +283,6 @@ export const App: React.FC = () => {
               isSolved={gameSolved}
             />
           )}
-
-          {/* Mutation Direction Controls */}
-          <VisualControls
-            onExecuteAction={handleExecuteAction}
-            disabled={gameSolved}
-          />
 
           {/* Mobile Ad Banner (visible on small screens) */}
           <div className="lg:hidden w-full flex justify-center mt-1">
