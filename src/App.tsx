@@ -7,6 +7,7 @@ import { TutorialModal } from './components/TutorialModal';
 import { StatisticsModal } from './components/StatisticsModal';
 import { Toast } from './components/Toast';
 import { GoogleAd } from './components/GoogleAd';
+import { PrivacyModal } from './components/PrivacyModal';
 
 import type { BoardState, GameAction, GeneratedPuzzle, DailyResult } from './game/types';
 import { generatePuzzle, DEFAULT_DAILY_CONFIG, PRACTICE_CONFIG } from './game/generator';
@@ -43,6 +44,7 @@ export const App: React.FC = () => {
   const [showTutorial, setShowTutorial] = useState<boolean>(false);
   const [showStats, setShowStats] = useState<boolean>(false);
   const [showResult, setShowResult] = useState<boolean>(false);
+  const [showPrivacy, setShowPrivacy] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<string>('');
 
   const [currentStreak, setCurrentStreak] = useState<number>(0);
@@ -294,10 +296,17 @@ export const App: React.FC = () => {
             <GoogleAd position="mobile" format="horizontal" />
           </div>
 
-          <div className="mt-auto pt-2 text-center text-xs text-slate-400 leading-relaxed max-w-xs">
+          <div className="mt-auto pt-2 text-center text-xs text-slate-400 leading-relaxed max-w-xs flex flex-col items-center gap-1.5">
             <p>
               💡 <strong>Controls:</strong> Tap adjacent tile to move. Swipe any row or column to rotate.
             </p>
+            <button
+              type="button"
+              onClick={() => setShowPrivacy(true)}
+              className="text-[11px] text-slate-500 hover:text-indigo-400 underline transition-colors cursor-pointer"
+            >
+              Privacy Policy
+            </button>
           </div>
         </main>
 
@@ -310,6 +319,7 @@ export const App: React.FC = () => {
       {/* Modals */}
       {showTutorial && <TutorialModal onClose={() => setShowTutorial(false)} />}
       {showStats && <StatisticsModal onClose={() => setShowStats(false)} />}
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
       {showResult && activePuzzle && (
         <DailyResultModal
           result={{
