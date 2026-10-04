@@ -36,7 +36,7 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
       ? ADS_CONFIG.slotLeft
       : position === 'right'
       ? ADS_CONFIG.slotRight
-      : '');
+      : ADS_CONFIG.slotLeft);
 
   const hasLiveConfig = Boolean(client && activeSlot);
 
