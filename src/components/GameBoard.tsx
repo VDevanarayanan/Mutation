@@ -114,7 +114,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
         {/* Left Corner Spacer matching left arrow button width */}
         <div className="w-7 md:w-9 shrink-0" />
         {/* 4 Up Arrows aligned with the 4 columns */}
-        <div className="grid grid-cols-4 gap-2 md:gap-2.5 flex-1">
+        <div className="grid grid-cols-4 gap-2 md:gap-2.5 flex-1 px-2.5 md:px-3.5">
           {[0, 1, 2, 3].map(colIdx => (
             <button
               key={`col-up-${colIdx}`}
@@ -139,9 +139,9 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       </div>
 
       {/* Middle Row: Left Arrows + 4x4 Matrix Board + Right Arrows */}
-      <div className="flex items-center justify-center gap-1.5 md:gap-2 w-full">
-        {/* Left Row Rotate Left Buttons */}
-        <div className="grid grid-rows-4 gap-2 md:gap-2.5 w-7 md:w-9 shrink-0">
+      <div className="flex items-stretch justify-center gap-1.5 md:gap-2 w-full">
+        {/* Left Row Rotate Left Buttons (height matching each row) */}
+        <div className="grid grid-rows-4 gap-2 md:gap-2.5 w-7 md:w-9 py-2.5 md:py-3.5 shrink-0">
           {[0, 1, 2, 3].map(rowIdx => (
             <button
               key={`row-left-${rowIdx}`}
@@ -155,7 +155,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
               }
               title={`Rotate Row ${rowIdx + 1} Left`}
               aria-label={`Rotate Row ${rowIdx + 1} Left`}
-              className="w-7 md:w-9 aspect-square rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white/90 border border-slate-800/80 dark:border-slate-800/80 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-indigo-500/10 flex items-center justify-center transition-all active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer shadow-md"
+              className="w-7 md:w-9 h-full rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white/90 border border-slate-800/80 dark:border-slate-800/80 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-indigo-500/10 flex items-center justify-center transition-all active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer shadow-md"
             >
               <ArrowLeft size={15} />
             </button>
@@ -187,8 +187,8 @@ export const GameBoard: React.FC<GameBoardProps> = ({
           ))}
         </div>
 
-        {/* Right Row Rotate Right Buttons */}
-        <div className="grid grid-rows-4 gap-2 md:gap-2.5 w-7 md:w-9 shrink-0">
+        {/* Right Row Rotate Right Buttons (height matching each row) */}
+        <div className="grid grid-rows-4 gap-2 md:gap-2.5 w-7 md:w-9 py-2.5 md:py-3.5 shrink-0">
           {[0, 1, 2, 3].map(rowIdx => (
             <button
               key={`row-right-${rowIdx}`}
@@ -202,7 +202,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
               }
               title={`Rotate Row ${rowIdx + 1} Right`}
               aria-label={`Rotate Row ${rowIdx + 1} Right`}
-              className="w-7 md:w-9 aspect-square rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white/90 border border-slate-800/80 dark:border-slate-800/80 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-indigo-500/10 flex items-center justify-center transition-all active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer shadow-md"
+              className="w-7 md:w-9 h-full rounded-xl bg-slate-900/90 dark:bg-slate-900/90 light:bg-white/90 border border-slate-800/80 dark:border-slate-800/80 light:border-slate-300 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-indigo-500/10 flex items-center justify-center transition-all active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer shadow-md"
             >
               <ArrowRight size={15} />
             </button>
@@ -215,7 +215,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
         {/* Left Corner Spacer matching left arrow button width */}
         <div className="w-7 md:w-9 shrink-0" />
         {/* 4 Down Arrows aligned with the 4 columns */}
-        <div className="grid grid-cols-4 gap-2 md:gap-2.5 flex-1">
+        <div className="grid grid-cols-4 gap-2 md:gap-2.5 flex-1 px-2.5 md:px-3.5">
           {[0, 1, 2, 3].map(colIdx => (
             <button
               key={`col-down-${colIdx}`}
