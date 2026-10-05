@@ -21,8 +21,8 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
   position,
   slot,
   client = ADS_CONFIG.client,
-  format = 'vertical',
-  responsive = true,
+  format,
+  responsive,
   className = '',
 }) => {
   const adRef = useRef<HTMLModElement>(null);
@@ -78,18 +78,26 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({
   // Render actual Google AdSense unit if live credentials exist
   if (hasLiveConfig && !adError) {
     return (
-      <div className={`ad-container relative flex flex-col items-center w-full my-2 ${className}`}>
+      <div className={`ad-container relative flex flex-col items-center w-full my-2 min-h-[250px] ${className}`}>
         <span className="text-[9px] font-semibold tracking-wider uppercase text-slate-500 mb-1">
           ADVERTISEMENT
         </span>
         <ins
           ref={adRef}
           className="adsbygoogle"
-          style={{ display: 'block', width: '100%', minHeight: position === 'mobile' ? '90px' : '600px' }}
+          style={{ display: 'block', width: '100%' }}
           data-ad-client={client}
           data-ad-slot={activeSlot}
-          data-ad-format={format}
-          data-full-width-responsive={responsive ? 'true' : 'false'}
+          data-ad-format={format || (position === 'mobile' ? 'horizontal' : 'auto')}
+          data-full-width-responsive={
+            responsive !== undefined
+              ? responsive
+                ? 'true'
+                : 'false'
+              : position === 'mobile'
+              ? 'true'
+              : 'false'
+          }
         />
       </div>
     );
